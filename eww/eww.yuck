@@ -1,0 +1,25 @@
+(defpoll workspace :interval "1s" "scripts/get_workspaces")
+
+(defwidget wsp []
+  (box 
+    :orientation "horizontal"
+    :halign "center"
+    workspace
+  )
+)
+
+(defwindow workspaces
+  :monitor 0
+  :geometry (geometry 
+    :x "13px"
+    :y "10px"
+    :width "10%"
+    :height "30px"
+    :anchor "top left"
+  )
+  :stacking "fg"
+  :reserve (struts :distance "40px" :side "top")
+  :windowtype "dock"
+  :wm-ignore true
+  (wsp)
+)

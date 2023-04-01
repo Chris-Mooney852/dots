@@ -1,3 +1,25 @@
 # Packages
+paru
+
 chromium
 alacritty
+lazygit
+unzip
+emacs
+rofi
+zoxide
+nvim-packer-git
+exa
+fzf
+eww
+bat
+dunst
+
+
+## TODO
+- [ ] clean up readme
+- [ ] move nvim config into here
+- [ ] add stuff for touchpad
+- [ ] create setup script
+- [ ] doom emacs install
+

@@ -1,0 +1,3 @@
+wsp=$(bspc query -D -d focused --names)
+
+echo $wsp
