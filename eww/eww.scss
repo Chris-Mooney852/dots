@@ -1,0 +1,11 @@
+@import "colors.scss";
+
+.background {
+  background-color: $background;
+  border: 2px solid $comment;
+  border-radius: 30px;
+}
+
+.text {
+  color: $foreground;
+}

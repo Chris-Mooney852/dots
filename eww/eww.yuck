@@ -1,14 +1,71 @@
-(defpoll workspace :interval "1s" "scripts/get_workspaces")
+;; colors
+(defvar background "#282a36")
+(defvar current_line "#44475a")
+(defvar foreground "#f8f8f2")
+(defvar comment "#6272a4")
+(defvar cyan "#8be9fd")
+(defvar green "#50fa7b")
+(defvar orange "#ffb86c")
+(defvar pink "#ff79c6")
+(defvar purple "#bd93f9")
+(defvar red "#ff5555")
+(defvar yellow "#f1fa8c")
 
-(defwidget wsp []
+(defvar wp0 "")
+(defvar wp1 "")
+(defvar wp2 "")
+(defvar wp3 "")
+(defvar wp4 "")
+(defvar wp5 "")
+(defvar wp6 "")
+(defvar wp7 "")
+(defvar wp8 "")
+(defvar wp9 "")
+
+(deflisten workspace "scripts/get_workspaces")
+(defpoll time :interval "1s" "scripts/time_info")
+
+(defwidget workspace_widget []
   (box 
     :orientation "horizontal"
     :halign "center"
-    workspace
+    :class "background"
+    :class "text"
+    wp0
+    wp1
+    wp2
+    wp3
+    wp4
+    wp5
+    wp6
+    wp7
+    wp8
+    wp9
   )
 )
 
-(defwindow workspaces
+(defwidget time_widget []
+  (box
+    :orientation "horizontal"
+    :halign "center"
+    :class "background"
+    :class "text"
+    time
+  )
+)
+
+
+(defwidget batt_widget []
+  (box
+    :orientation "horizontal"
+    :halign "center"
+    :class "background"
+    :class "text"
+    "${EWW_BATTERY["BAT0"].capacity}%"
+  )
+)
+
+(defwindow workspace_window
   :monitor 0
   :geometry (geometry 
     :x "13px"
@@ -20,6 +77,38 @@
   :stacking "fg"
   :reserve (struts :distance "40px" :side "top")
   :windowtype "dock"
-  :wm-ignore true
-  (wsp)
+  :wm-ignore false
+  (workspace_widget)
+)
+
+(defwindow time_window
+  :monitor 0
+  :geometry (geometry 
+    :x "1716px"
+    :y "10px"
+    :width "10%"
+    :height "30px"
+    :anchor "top left"
+  )
+  :stacking "fg"
+  :reserve (struts :distance "40px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (time_widget)
+)
+
+(defwindow batt_window
+  :monitor 0
+  :geometry (geometry 
+    :x "1516px"
+    :y "10px"
+    :width "10%"
+    :height "30px"
+    :anchor "top left"
+  )
+  :stacking "fg"
+  :reserve (struts :distance "40px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (batt_widget)
 )
