@@ -1,0 +1,55 @@
+(deflisten workspace :initial "(box (button '1'))" `nu scripts/workspace.nu`)
+
+(defwidget workspaces []
+  (literal :content workspace)
+  )
+
+(defwidget right []
+  (box :orientation "h" 
+       :space-evenly false  
+       :halign "start"
+       :class "right_modules"
+    (workspaces)
+    )
+  )
+
+(defwidget center []
+  (box :orientation "h" 
+       :space-evenly false  
+       :halign "center"
+       :class "center_modules"
+    "temp"
+    )
+  )
+
+(defwidget left []
+  (box :orientation "h" 
+       :space-evenly false  
+       :halign "end"
+       :class "left_modules"
+    "temp"
+    )
+  )
+
+(defwidget bar_1 []
+  (box :class "bar_class"
+       :orientation "h"
+    (right)
+    (center)
+    (left)
+    )
+  )
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "0%"
+  :y "20px"
+  :width "90%"
+  :height "30px"
+  :anchor "top center")
+  :stacking "fg"
+  :reserve (struts :distance "40px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (bar_1)
+  )
