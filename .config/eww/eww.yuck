@@ -9,6 +9,10 @@
 )" `nu scripts/workspace.nu`)
 (defpoll time :interval "5s" "nu scripts/time.nu --time")
 (defpoll date :interval "5m" "nu scripts/time.nu --date")
+(defpoll networkStatus :interval "5s" "nu scripts/network.nu")
+(defpoll bluetoothStatus :interval "5s" "nu scripts/bluetooth.nu")
+(defpoll volumeIcon :interval "1s" "nu scripts/volume.nu --getVolumeIcon")
+(defpoll volume :interval "1s" "nu scripts/volume.nu --getVolume")
 
 (defwidget workspaces []
   (literal :content workspace)
@@ -32,12 +36,29 @@
     )
   )
 
+(defwidget volume []
+  (box :class "volume"
+       :orientation "h"
+    (button :onclick "pamixer -t" volumeIcon)
+    (scale :value volume
+           :min 0
+           :max 100
+           :orientation "h"
+           :width 120
+           :onchange "pamixer --set-volume {}"
+      )
+    )
+  )
+
 (defwidget left []
   (box :orientation "h" 
        :space-evenly false  
        :halign "end"
        :class "left_modules"
        :spacing 5
+      (volume)
+      (button networkStatus)
+      (button bluetoothStatus)
       (label :text time)
       (button date)
     )
