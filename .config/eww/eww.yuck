@@ -59,7 +59,7 @@
        :spacing 5
       (volume)
       (button networkStatus)
-      (button bluetoothStatus)
+      (button :onclick "rofi-bluetooth" bluetoothStatus)
       (label :text time)
       (button date)
     )
