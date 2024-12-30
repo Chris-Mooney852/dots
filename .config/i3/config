@@ -194,10 +194,10 @@ gaps outer 20
 gaps inner 12
 
 # set border
-default_border pixel
+default_border pixel 4
 
 # wallpaper
 exec --no-startup-id feh --bg-scale /home/chris/Pictures/Wallpapers/forrest_bubble_5120x1440_by_5140x1440_dhnd41w.jpg
 
-
+# start picom
 exec --no-startup-id picom -b
