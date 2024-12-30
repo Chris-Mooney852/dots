@@ -1,23 +1,5 @@
 #!/bin/nu
 
-#(
-#  i3-msg -t subscribe -m '["workspace"]'
-#) | each {|i|
-#    if $i != nothing {
-#    let workspaces = (i3-msg -t get_workspaces | from json)
-#
-#    for workspace in $workspaces {
-#      let num = $workspace | get num
-#      let focused = $workspace | get focused
-#
-#      if $focused {
-#        print $num
-#      }
-#    }
-#  }
-#}
-
-
 (
   i3-msg -t subscribe -m '["workspace"]'
 ) | each {|i|
@@ -28,11 +10,14 @@
     for workspace in $workspaces {
       let num = $workspace | get num
       let focused = $workspace | get focused
+      let urgent = $workspace | get urgent
 
       if $focused {
-        $final = $final + $" \(button \)"
+        $final = $final + $" \(button :onclick 'i3-msg workspace number ($num)' '' \)"
+      } else if $urgent {
+        $final = $final + $" \(button :onclick 'i3-msg workspace number ($num)' ''  \)"
       } else {
-        $final = $final + $" \(button \)"
+        $final = $final + $" \(button :onclick 'i3-msg workspace number ($num)' ''  \)"
       }
     }
 

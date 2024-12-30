@@ -1,4 +1,4 @@
-(deflisten workspace :initial "(box (button '1'))" `nu scripts/workspace.nu`)
+(deflisten workspace :initial "(box (button ''))" `nu scripts/workspace.nu`)
 
 (defwidget workspaces []
   (literal :content workspace)
