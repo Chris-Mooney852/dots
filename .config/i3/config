@@ -190,10 +190,10 @@ bindsym $mod+r mode "resize"
 # }
 
 # set gaps
-# gaps outer 20
-gaps horizontal 20
-gaps top 40
-gaps bottom 10
+gaps outer 20
+# gaps horizontal 20
+# gaps top 40
+# gaps bottom 10
 gaps inner 12
 
 # set border
@@ -206,4 +206,4 @@ exec --no-startup-id feh --bg-scale /home/chris/Pictures/Wallpapers/forrest_bubb
 exec --no-startup-id picom -b
 
 # launch eww
-exec --no-startup-id /home/.config/eww/scripts/launch.nu
+exec --no-startup-id /home/chris/.config/eww/scripts/launch.nu

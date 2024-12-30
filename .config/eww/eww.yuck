@@ -35,7 +35,7 @@
 (defwidget left []
   (box :orientation "h" 
        :space-evenly false  
-       :halign "center"
+       :halign "end"
        :class "left_modules"
        :spacing 5
       (label :text time)
@@ -47,46 +47,23 @@
   (box :class "bar_class"
        :orientation "h"
     (right)
-    )
-  )
-
-(defwidget bar_2 []
-  (box :class "bar_class"
-       :orientation "h"
     (left)
     )
   )
 
-(defwindow workspace_bar
+(defwindow bar
   :monitor 0
   :geometry (
              geometry 
              :x "32px"
              :y "10px"
              :width "240px"
-             :height "30px"
-             :anchor "top left"
+             :height "10px"
+             :anchor "top center"
              )
-  :stacking "fg"
-  :reserve (struts :distance "80px" :side "top")
+  :stacking "bg"
+  :reserve (struts :distance "10px" :side "top")
   :windowtype "dock"
-  :wm-ignore true
+  :wm-ignore false
   (bar_1)
-  )
-
-(defwindow time_bar
-  :monitor 0
-  :geometry (
-             geometry 
-             :x "0px"
-             :y "10px"
-             :width "240px"
-             :height "30px"
-             :anchor "top right"
-             )
-  :stacking "fg"
-  :reserve (struts :distance "80px" :side "top")
-  :windowtype "dock"
-  :wm-ignore true
-  (bar_2)
   )
