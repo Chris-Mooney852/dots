@@ -204,3 +204,6 @@ exec --no-startup-id feh --bg-scale /home/chris/Pictures/Wallpapers/forrest_bubb
 
 # start picom
 exec --no-startup-id picom -b
+
+# launch eww
+exec --no-startup-id /home/.config/eww/scripts/launch.nu
