@@ -23,3 +23,5 @@ zoxide init nushell | save -f ~/.zoxide.nu
 # init starship
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
+
+$env.NCSPOT_CACHE_DIRECTORY = '/run/user/1000/ncspot'
