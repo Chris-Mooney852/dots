@@ -7,6 +7,8 @@
       (button :onclick 'i3-msg workspace number 5' '')
       (button :onclick 'i3-msg workspace number 6' '')
 )" `nu scripts/workspace.nu`)
+(defpoll time :interval "5s" "nu scripts/time.nu --time")
+(defpoll date :interval "5m" "nu scripts/time.nu --date")
 
 (defwidget workspaces []
   (literal :content workspace)
@@ -33,9 +35,11 @@
 (defwidget left []
   (box :orientation "h" 
        :space-evenly false  
-       :halign "end"
+       :halign "center"
        :class "left_modules"
-    "temp"
+       :spacing 5
+      (label :text time)
+      (button date)
     )
   )
 
@@ -46,10 +50,18 @@
     )
   )
 
-(defwindow bar
+(defwidget bar_2 []
+  (box :class "bar_class"
+       :orientation "h"
+    (left)
+    )
+  )
+
+(defwindow workspace_bar
   :monitor 0
   :geometry (
-             geometry :x "32px"
+             geometry 
+             :x "32px"
              :y "10px"
              :width "240px"
              :height "30px"
@@ -60,4 +72,21 @@
   :windowtype "dock"
   :wm-ignore true
   (bar_1)
+  )
+
+(defwindow time_bar
+  :monitor 0
+  :geometry (
+             geometry 
+             :x "0px"
+             :y "10px"
+             :width "240px"
+             :height "30px"
+             :anchor "top right"
+             )
+  :stacking "fg"
+  :reserve (struts :distance "80px" :side "top")
+  :windowtype "dock"
+  :wm-ignore true
+  (bar_2)
   )
