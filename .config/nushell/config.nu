@@ -17,8 +17,10 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 
+# init zoxide
 source ~/.zoxide.nu
 
+# enable zoxide on exit for yazi
 def --env y [...args] {
 	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
 	yazi ...$args --cwd-file $tmp
@@ -28,3 +30,6 @@ def --env y [...args] {
 	}
 	rm -fp $tmp
 }
+
+# init starship
+use ~/.cache/starship/init.nu

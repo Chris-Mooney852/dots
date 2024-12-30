@@ -17,4 +17,9 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 
+# Init zoxide
 zoxide init nushell | save -f ~/.zoxide.nu
+
+# init starship
+mkdir ~/.cache/starship
+starship init nu | save -f ~/.cache/starship/init.nu
