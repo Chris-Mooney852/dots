@@ -1,4 +1,12 @@
-(deflisten workspace :initial "(box (button ''))" `nu scripts/workspace.nu`)
+(deflisten workspace :initial "
+  (box :class \"workspace\" :orientation \"h\" :spacing 5
+      (button :onclick 'i3-msg workspace number 1' '')
+      (button :onclick 'i3-msg workspace number 2' '')
+      (button :onclick 'i3-msg workspace number 3' '')
+      (button :onclick 'i3-msg workspace number 4' '')
+      (button :onclick 'i3-msg workspace number 5' '')
+      (button :onclick 'i3-msg workspace number 6' '')
+)" `nu scripts/workspace.nu`)
 
 (defwidget workspaces []
   (literal :content workspace)
@@ -35,21 +43,21 @@
   (box :class "bar_class"
        :orientation "h"
     (right)
-    (center)
-    (left)
     )
   )
 
 (defwindow bar
   :monitor 0
-  :geometry (geometry :x "0%"
-  :y "20px"
-  :width "90%"
-  :height "30px"
-  :anchor "top center")
+  :geometry (
+             geometry :x "32px"
+             :y "10px"
+             :width "240px"
+             :height "30px"
+             :anchor "top left"
+             )
   :stacking "fg"
-  :reserve (struts :distance "40px" :side "top")
+  :reserve (struts :distance "80px" :side "top")
   :windowtype "dock"
-  :wm-ignore false
+  :wm-ignore true
   (bar_1)
   )
