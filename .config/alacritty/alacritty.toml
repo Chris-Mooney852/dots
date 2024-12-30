@@ -1,3 +1,5 @@
+general.import = ["./themes/nordic.toml"]
+
 terminal.shell = "/usr/bin/nu"
 
 font.normal.family = "FiraCode Nerd Font Mono"
