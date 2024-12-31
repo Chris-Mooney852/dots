@@ -7,5 +7,5 @@ try {
 
   return $"󰝚  ($title) - ($artists)"
 } catch { 
-  return "e"
+  return ""
 }

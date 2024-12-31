@@ -16,15 +16,14 @@ use std log
         let urgent = $workspace | get urgent
 
         if $focused {
-          $" \(button :onclick 'i3-msg workspace number ($num)' '' \)"
+          $" \(label :class 'focused' :text '' \)"
         } else if $urgent {
-          $" \(button :onclick 'i3-msg workspace number ($num)' ''  \)"
+          $" \(label :text ''  \)"
         } else {
-          # TODO: change this to greyed out solid
-          $" \(button :onclick 'i3-msg workspace number ($num)' '󰪥'  \)"
+          $" \(label :text ''  \)"
         }
       } catch { |err|
-          $" \(button :onclick 'i3-msg workspace number ($x)' ''  \)"
+          $" \(label :text ''  \)"
       }
 
 

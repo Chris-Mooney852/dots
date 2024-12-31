@@ -1,3 +1,49 @@
+$nord0: #222630;
+$nord1: #2e3440;
+$nord2: #3b4252;
+$nord3: #434c5e;
+
+$nord4: #d8dee9;
+$nord5: #e5e9f0;
+$nord6: #eceff4;
+
+$nord7: #8fbcbb;
+$nord8: #88c0d0;
+$nord9: #81a1c1;
+$nord10: #5e81ac;
+$nord11: #bf616a;
+
+$nord12: #d08770;
+$nord13: #ebcb8b;
+$nord14: #a3be8c;
+$nord15: #b48ead;
+
 button {
+  all: unset; 
   border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.workspace label {
+  padding: 6px;
+}
+
+.focused {
+  color: $nord12;
+}
+
+.volume button {
+  all: unset; 
+  padding-right: 10px;
+}
+
+.volumeSlider {
+  all: unset;
+  color: $nord12;
+}
+
+.volumeSlider trough highlight {
+  all: unset;
+  background-color: $nord12;
 }

@@ -1,11 +1,11 @@
 (deflisten workspace :initial "
   (box :class \"workspace\" :orientation \"h\" :spacing 5
-      (button :onclick 'i3-msg workspace number 1' '')
-      (button :onclick 'i3-msg workspace number 2' '')
-      (button :onclick 'i3-msg workspace number 3' '')
-      (button :onclick 'i3-msg workspace number 4' '')
-      (button :onclick 'i3-msg workspace number 5' '')
-      (button :onclick 'i3-msg workspace number 6' '')
+      (label :class 'focused' :text '')
+      (label :text '')
+      (label :text '')
+      (label :text '')
+      (label :text '')
+      (label :text '')
 )" `nu scripts/workspace.nu`)
 (defpoll time :interval "5s" "nu scripts/time.nu --time")
 (defpoll date :interval "5m" "nu scripts/time.nu --date")
@@ -40,6 +40,7 @@
 (defwidget volume []
   (box :class "volume"
        :orientation "h"
+       :space-evenly false
     (button :onclick "pamixer -t" volumeIcon)
     (scale :value volume
            :min 0
@@ -47,6 +48,7 @@
            :orientation "h"
            :width 120
            :onchange "pamixer --set-volume {}"
+           :class "volumeSlider"
       )
     )
   )
@@ -59,7 +61,7 @@
        :spacing 5
       (volume)
       (button networkStatus)
-      (button :onclick "rofi-bluetooth" bluetoothStatus)
+      (button bluetoothStatus)
       (label :text time)
       (button date)
     )
